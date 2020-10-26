@@ -2,7 +2,7 @@
   
   <description>Tool OrthoFinder</description>
   
-  <command>python3 orthocaller.py '$specie_tree' '$orthogroups' '$OrthologueStats_many-to-many' '$Statistics_PerSpecies' '$Statistics_Overall' '$input1' '$input2' </command>
+  <command>python3 orthocaller.py '$orthogroups' '$specie_tree' '$OrthologueStats_many-to-many' '$Statistics_PerSpecies' '$Statistics_Overall' '$input1' '$input2' </command>
   
   <inputs>
     <param format="fasta" name="input1" type="data" label="Source file"/>
@@ -10,8 +10,8 @@
   </inputs>
   
   <outputs>
-    <data format="txt" name="specie_tree" label="specie_tree" />
 	  <data format="tabular" name="orthogroups" label="orthogroups" />
+    <data format="txt" name="specie_tree" label="specie_tree" />
     <data format="tabular" name="OrthologueStats_many-to-many" label="OrthologueStats_many-to-many" />
     <data format="tabular" name="Statistics_PerSpecies" label="Statistics_PerSpecies" />
     <data format="tabular" name="Statistics_Overall" label="Statistics_Overall" />
