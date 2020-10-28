@@ -3,6 +3,7 @@ import argparse
 import shutil
 from pathlib import Path
 from tempfile import TemporaryDirectory
+from datetime import datetime
 
 #For parsing given args
 parser = argparse.ArgumentParser()
@@ -12,12 +13,17 @@ args = parser.parse_args()
 
 #Defining which outputs we want and their paths in the OrthoFinder output directory
 target_output_paths = [
-	Path().joinpath('Orthogroups','Orthogroups.tsv'),#!!!Confirmar este!!!
+	Path().joinpath('Orthogroups','Orthogroups.tsv'),
 	Path().joinpath('Species_Tree','SpeciesTree_rooted_node_labels.txt'),
 	Path().joinpath('Comparative_Genomics_Statistics','OrthologuesStats_many-to-many.tsv'),
 	Path().joinpath('Comparative_Genomics_Statistics','Statistics_PerSpecies.tsv'),
 	Path().joinpath('Comparative_Genomics_Statistics','Statistics_Overall.tsv')
 ]
+
+#Defining current date and time in order to name folders accordingly
+current_date = datetime.now()
+date_month = now.strftime('%b')
+date_day = now.strftime('%d')
 
 #Creating a temporary directory to use with OrthoFinder
 with TemporaryDirectory() as dataDirectory:
@@ -38,9 +44,9 @@ with TemporaryDirectory() as dataDirectory:
 	#Waiting for the subprocess to finish
 	orthocaller.wait()
 
-	#copy target files to their respective output paths defined in argv
+	#Copy target files to their respective output paths defined in argv
 	for src in target_output_paths:
-		shutil.copy(Path().joinpath(dataDirectory, 'OrthoFinder', 'Results_Oct27', src),out_path_map[src])#!!!resolver nome da pasta de saída do orthofinder!!!
+		shutil.copy(Path().joinpath(dataDirectory, 'OrthoFinder', 'Results_'+date_month+date_day, src),out_path_map[src])
 	
 #cmd test (Apagar dps)	
 
