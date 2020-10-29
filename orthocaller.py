@@ -5,11 +5,6 @@ from pathlib import Path
 from tempfile import TemporaryDirectory
 from datetime import datetime
 
-#For parsing given args
-parser = argparse.ArgumentParser()
-parser.add_argument('out', type=str, nargs=5)
-parser.add_argument('files', type=str, nargs='+')
-args = parser.parse_args()
 
 #Defining which outputs we want and their paths in the OrthoFinder output directory
 target_output_paths = [
@@ -20,10 +15,16 @@ target_output_paths = [
 	Path().joinpath('Comparative_Genomics_Statistics','Statistics_Overall.tsv')
 ]
 
+#For parsing given args
+parser = argparse.ArgumentParser()
+parser.add_argument('out', type=str, nargs=len(target_output_paths))
+parser.add_argument('files', type=str, nargs='+')
+args = parser.parse_args()
+
 #Defining current date and time in order to name folders accordingly
 current_date = datetime.now()
-date_month = now.strftime('%b')
-date_day = now.strftime('%d')
+date_month = current_date.strftime('%b')
+date_day = current_date.strftime('%d')
 
 #Creating a temporary directory to use with OrthoFinder
 with TemporaryDirectory() as dataDirectory:
