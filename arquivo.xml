@@ -10,9 +10,9 @@
   </inputs>
   
   <outputs>
-	  <data format="tabular" name="orthogroups" label="orthogroups" />
+    <data format="tabular" name="orthogroups" label="orthogroups" />
     <data format="txt" name="specie_tree" label="specie_tree" />
-    <data format="tabular" name="OrthologueStats_many-to-many" label="OrthologueStats_many-to-many" />
+    <data format="tabular" name="OrthologuesStats_many-to-many" label="OrthologuesStats_many-to-many" />
     <data format="tabular" name="Statistics_PerSpecies" label="Statistics_PerSpecies" />
     <data format="tabular" name="Statistics_Overall" label="Statistics_Overall" />
   </outputs>
@@ -24,8 +24,8 @@
       <output name="specie_tree" file="specie_tree.txt"/>
       <output name="orthogroups" file="orthogroups.tsv"/>
       <output name="OrthologueStats_many-to-many" file="OrthologueStats_many-to-many.tsv"/>
-	    <output name="Statistics_PerSpecies" file="Statistics_PerSpecies.tsv"/>
-	    <output name="Statistics_Overall" file="Statistics_Overall.tsv"/>
+      <output name="Statistics_PerSpecies" file="Statistics_PerSpecies.tsv"/>
+      <output name="Statistics_Overall" file="Statistics_Overall.tsv"/>
     </test>
   </tests>
 
