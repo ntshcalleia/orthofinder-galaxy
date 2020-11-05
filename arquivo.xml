@@ -6,7 +6,7 @@
   
   <inputs>
     <param format="fasta" name="input1" type="data" label="Source file"/>
-	  <param format="fasta" name="input2" type="data" label="Source file"/>
+    <param format="fasta" name="input2" type="data" label="Source file"/>
   </inputs>
   
   <outputs>
@@ -23,7 +23,7 @@
       <param name="input2" value="Ath.fa" />
       <output name="specie_tree" file="specie_tree.txt"/>
       <output name="orthogroups" file="orthogroups.tsv"/>
-      <output name="OrthologueStats_many-to-many" file="OrthologueStats_many-to-many.tsv"/>
+      <output name="OrthologuesStats_many-to-many" file="OrthologuesStats_many-to-many.tsv"/>
       <output name="Statistics_PerSpecies" file="Statistics_PerSpecies.tsv"/>
       <output name="Statistics_Overall" file="Statistics_Overall.tsv"/>
     </test>
