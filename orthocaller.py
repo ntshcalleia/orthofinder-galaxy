@@ -1,3 +1,4 @@
+import os
 import subprocess
 import argparse
 import shutil
@@ -37,10 +38,13 @@ with TemporaryDirectory() as dataDirectory:
 	for f in args.files:
 		shutil.copy(f, dataDirectory)
 
+	#rename dat files to FASTA extension
+	for f2 in os.listdir(dataDirectory):
+		#print(f2[:-4])
+		os.rename(Path().joinpath(dataDirectory,f2),Path().joinpath(dataDirectory,f2[:-4]+'.fasta'))
+
 	#Running orthocaller on data directory (!!!chamar caminho completo ou usar path do sistema!!!)
-	orthocaller = subprocess.Popen(['./orthofinder','-f',dataDirectory],
-	stdout=subprocess.PIPE, stderr=subprocess.PIPE,
-	universal_newlines=True)
+	orthocaller = subprocess.Popen(['orthofinder','-f',dataDirectory])#,stdout=subprocess.PIPE,stderr=subprocess.PIPE,universal_newlines=True)
 
 	#Waiting for the subprocess to finish
 	orthocaller.wait()
